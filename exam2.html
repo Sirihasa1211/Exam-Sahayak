@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // JavaScript function to open the PDF
+        function openPDF() {
+            window.open("file:///C:/Users/sirih/Downloads/III-CSE-Syllabus.pdf", "_blank");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, Administrator</h1>
+        <div class="options">
+            <div class="option" onclick="openPDF()"> <!-- Added onclick event here -->
+                <img src="C:/exam sahayak/pics/syllabus.jpeg" alt="Syllabus" />
+                <h2>Syllabus</h2>
+                <p>View the syllabus for the semester.</p>
+            </div>
+            <br>
+            <div class="option">
+                <img src="C:/exam sahayak/pics/notes.png" alt="Notes" />
+                <h2>Notes</h2>
+                <p>Access the notes for the semester.</p>
+                <a href="https://drive.google.com/drive/folders/12Pc-AZxZ3O9IKSudmq_tg_u3KARnz-62" target="_blank">View Notes</a>
+            </div>
+            <br>
+            <div class="option">
+                <img src="C:\exam sahayak\extra\seat.jpeg" alt="Seating Arrangement" />
+                <h2>Seating Arrangement Generator</h2>
+                <p>Generate seating arrangements for exams.</p>
+                <a href="generator.html" target="_blank">Open Generator</a>
+            </div>
+        </div>

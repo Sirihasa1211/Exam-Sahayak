@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Exam Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: rgb(19, 19, 202);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+
+        .box {
+            width: 60%; /* Adjust the width as needed */
+            padding: 20px;
+            border: 2px solid rgb(20, 20, 212);
+            background-color: white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+       
+        h2 {
+            margin-bottom: 30px;
+            color:rgb(44, 44, 44);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between the options */
+        }
+
+        .option {
+            border: 2px solid rgb(21, 21, 227);
+            padding: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            width: 200px; /* Adjust the width as needed */
+            border-radius: 5px;
+        }
+
+        .option:hover {
+            transform: scale(1.1); /* Extend/scale up on hover */
+            box-shadow: 5px 5px 15px rgba(41, 64, 243, 0.785);
+        }
+
+        .option img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+
+        .option h3 {
+            margin-top: 10px;
+            color: rgb(40, 40, 42);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2><bold>Connect, Discover, Transform...<br><br>
+
+        </bold></h2><h2>Who would you like to log in as?</h2>
+        
+        <div class="container">
+            <div class="option" onclick="location.href='student_login.html'">
+                <img src="pics/stud.jpeg" alt="Student Login">
+                <h3>Login as Student</h3>
+            </div>
+            <div class="option" onclick="location.href='admin_login.html'">
+                <img src="pics/adminis.png" alt="Admin Login">
+                <h3>Login as Administrator</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Login</title>
+    <link rel="stylesheet" href="style_login.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Administrator Login</h1>
+        <input type="text" id="adminId" placeholder="ID">
+        <input type="password" id="adminPassword" placeholder="Password">
+        <button onclick="loginAsAdmin()">Login</button>
+    </div>
+    <script>
+        function loginAsAdmin() {
+            const adminId = document.getElementById('adminId').value;
+            const adminPassword = document.getElementById('adminPassword').value;
+            if (adminId === "system" && adminPassword === "manager") {
+                window.location.href = "exam2.html?admin=true"; // Redirect to exam options with admin
+            } else {
+                alert("Invalid Admin credentials.");
+            }
+        }
+    </script>
+</body>
+</html>

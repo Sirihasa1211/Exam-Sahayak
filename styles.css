@@ -1,0 +1,112 @@
+/* General styles */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: gray; /* Updated font color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 255, 0.5); /* Blue shadow border */
+    border-radius: 5px;
+    border: 2px solid darkblue; /* Dark blue border */
+    align-items: center;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(44, 43, 43); /* Updated heading color */
+    text-align: center;
+}
+
+p {
+    color: rgb(41, 41, 41); /* Updated paragraph color */
+}
+
+a {
+    color: rgb(3, 3, 187);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button styles */
+button, input[type="submit"], input[type="button"] {
+    background-color: rgba(11, 18, 228, 0.815); /* Updated as per the picture */
+    color:  rgb(250, 250, 253);
+    border: 2px solid darkblue;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Center alignment for images */
+.option {
+    text-align: center; /* Centers the content inside the div */
+    margin: 0 auto; /* Centers the div itself if needed */
+    display: inline-block; /* Ensures the container takes up only the necessary space */
+    width: 250px; /* Adjust the width as needed */
+    padding: 10px;
+}
+
+.option img {
+    display: block;
+    margin: 0 auto; /* This will center the image inside the container */
+    max-width: 100%; /* Ensures the image fits inside the container */
+    height: auto; /* Maintains the aspect ratio */
+}
+.options img {
+    display: block;
+    margin: 0 auto; /* This will center the image inside the container */
+    max-width: 100%; /* Ensures the image fits inside the container */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+input, select, textarea {
+    border: 1px solid rgb(4, 37, 148);
+    
+    padding: 8px;
+    color: gray; /* Updated input text color */
+    width: calc(100% - 18px); /* Adjust to fill container */
+}
+
+fieldset {
+    border: 2px solid darkblue;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 255, 0.5); /* Blue shadow */
+}
+
+legend {
+    color: rgb(46, 45, 45); /* Updated legend color */
+    padding: 0 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid darkblue;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: rgb(12, 79, 147);
+    color: rgb(2, 2, 150);
+}
+
+.table td {
+    background-color: white;
+}
+.back-button{
+width:"50";
+height:"50";
+}

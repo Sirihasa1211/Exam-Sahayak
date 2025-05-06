@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Sahayak - Seating Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    .section, .department {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Exam Sahayak - Seating Arrangement Generator</h1>
+
+<h3>Section Info</h3>
+<div id="sectionsContainer"></div>
+<button onclick="addSection()">Add Section</button>
+
+<h3>Department Info</h3>
+<div id="departmentsContainer"></div>
+<button onclick="addDepartment()">Add Department</button>
+
+<br><br>
+<button onclick="generateArrangement()">Generate Arrangement</button>
+
+<div id="output"></div>
+
+<script>
+  let sectionCount = 0;
+  let deptCount = 0;
+
+  function addSection() {
+    sectionCount++;
+    const container = document.getElementById('sectionsContainer');
+    const div = document.createElement('div');
+    div.className = "section";
+    div.innerHTML = `
+      <h4>Section ${sectionCount}</h4>
+      <label>Section Number:</label>
+      <input type="text" name="sectionNo" required>
+      <label>Number of Benches:</label>
+      <input type="number" name="benchCount" required>
+    `;
+    container.appendChild(div);
+  }
+
+  function addDepartment() {
+    deptCount++;
+    const container = document.getElementById('departmentsContainer');
+    const div = document.createElement('div');
+    div.className = "department";
+    div.innerHTML = `
+      <h4>Department ${deptCount}</h4>
+      <label>Department Name:</label>
+      <input type="text" name="deptName" required>
+      <label>Section:</label>
+      <input type="text" name="deptSection" required>
+      <label>Start Roll Number:</label>
+      <input type="number" name="startRoll" required>
+      <label>End Roll Number:</label>
+      <input type="number" name="endRoll" required>
+      <label>Detained Roll Numbers (comma-separated):</label>
+      <textarea name="detained"></textarea>
+    `;
+    container.appendChild(div);
+  }
+
+  function generateArrangement() {
+    const sections = Array.from(document.querySelectorAll('.section')).map(sec => {
+      const sectionNo = sec.querySelector('input[name="sectionNo"]').value;
+      const benches = parseInt(sec.querySelector('input[name="benchCount"]').value);
+      return { sectionNo, benches, assigned: [] };
+    });
+
+    const departments = Array.from(document.querySelectorAll('.department')).map(dep => {
+      const deptName = dep.querySelector('input[name="deptName"]').value;
+      const section = dep.querySelector('input[name="deptSection"]').value;
+      const start = parseInt(dep.querySelector('input[name="startRoll"]').value);
+      const end = parseInt(dep.querySelector('input[name="endRoll"]').value);
+      const detained = new Set(
+        dep.querySelector('textarea[name="detained"]').value.split(',').map(r => r.trim()).filter(r => r)
+      );
+
+      const validRolls = [];
+      for (let i = start; i <= end; i++) {
+        if (!detained.has(i.toString())) validRolls.push(i);
+      }
+
+      return {
+        deptName,
+        section,
+        rolls: validRolls
+      };
+    });
+
+    const resultRows = [];
+
+    let sectionIndex = 0;
+    for (const dept of departments) {
+      while (dept.rolls.length > 0 && sectionIndex < sections.length) {
+        const sec = sections[sectionIndex];
+        const benchCapacity = sec.benches * 2;
+        const remaining = benchCapacity - sec.assigned.length;
+        const toAssign = Math.min(remaining, dept.rolls.length);
+        const assignedNow = dept.rolls.splice(0, toAssign);
+        sec.assigned.push(...assignedNow);
+
+        if (assignedNow.length > 0) {
+          resultRows.push({
+            sectionNo: sec.sectionNo,
+            deptName: dept.deptName,
+            section: dept.section,
+            startRoll: assignedNow[0],
+            endRoll: assignedNow[assignedNow.length - 1]
+          });
+        }
+
+        if (sec.assigned.length === benchCapacity) {
+          sectionIndex++;
+        }
+      }
+    }
+
+    const output = document.getElementById('output');
+    if (resultRows.length === 0) {
+      output.innerHTML = "<p>No valid data to show.</p>";
+      return;
+    }
+
+    let html = `<table>
+      <tr>
+        <th>Section No</th>
+        <th>Department</th>
+        <th>Section</th>
+        <th>Start Roll No</th>
+        <th>End Roll No</th>
+      </tr>`;
+
+    for (const row of resultRows) {
+      html += `
+        <tr>
+          <td>${row.sectionNo}</td>
+          <td>${row.deptName}</td>
+          <td>${row.section}</td>
+          <td>${row.startRoll}</td>
+          <td>${row.endRoll}</td>
+        </tr>
+      `;
+    }
+
+    html += "</table>";
+    output.innerHTML = html;
+  }
+</script>
+
+</body>
+</html>

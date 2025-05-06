@@ -1,0 +1,196 @@
+/* General reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo img {
+    max-width: 50px; /* Adjust size of the logo */
+    height: auto;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #a3d2e6, #e1f2fa); /* Updated gradient background to reflect soft blue tones */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+/* Centering container and content */
+.container {
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+    margin: 100px auto 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Softer edges */
+    text-align: center; /* Center text within the container */
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+
+h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: center; /* Centering subheadings */
+}
+
+.center {
+    max-width: 800px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center text inside */
+}
+
+/* Input section styling */
+.input-section {
+    background-color: #f0f8ff; /* Light blue to match the image’s theme */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center; /* Center text inside */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align form elements to the center */
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: center; /* Center label text */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 100%; /* Full-width inputs */
+    max-width: 400px; /* Restrict input width */
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+    text-align: center; /* Center text inside inputs */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #007BFF; /* Blue matching the interface */
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#generateSeating {
+    margin-top: 20px;
+    padding: 12px 20px;
+}
+
+/* Seating arrangement table */
+#seatingArrangement {
+    display: none;
+    margin-top: 40px;
+}
+
+#seatingTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#seatingTable th, 
+#seatingTable td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#seatingTable th {
+    background-color: #4facfe; /* Blue header for table */
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+#seatingTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#seatingTable tr:hover {
+    background-color: #e0f7ff;
+}
+
+#seatingTable td {
+    color: #333;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #seatingTable th, 
+    #seatingTable td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

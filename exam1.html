@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showContent(contentId) {
+            document.getElementById("syllabus").style.display = "none";
+            document.getElementById("notes").style.display = "none";
+            document.getElementById("options").style.display = "none";
+            document.getElementById(contentId).style.display = "block";
+        }
+
+        function goBack() {
+            document.getElementById("syllabus").style.display = "none";
+            document.getElementById("notes").style.display = "none";
+            document.getElementById("options").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome, Student</h1>
+    
+    <!-- Main options for syllabus and notes -->
+    <div class="options" id="options">
+        <div class="option" onclick="showContent('syllabus')">
+            <img src="C:\exam sahayak\pics\syllabus.jpeg" alt="Syllabus" />
+            <h2>Syllabus</h2>
+            <p>View the syllabus for the semester.</p>
+        </div>
+        <br>
+        <div class="option" onclick="showContent('notes')">
+            <img src="C:/exam sahayak/pics/notes.png" alt="Notes" />
+            <h2>Notes</h2>
+            <p>Access the notes for the semester.</p>
+        </div>
+    </div>
+
+    <!-- Syllabus content -->
+    <div id="syllabus" style="display:none;">
+        <h2>Syllabus</h2>
+        <embed src="C:\Users\sirih\OneDrive\Documents\Class notes\III-CSE-Syllabus.pdf" type="application/pdf" width="100%" height="600px" />
+    </div>
+
+    <!-- Notes content -->
+    <div id="notes" style="display:none;">
+        <h2>Notes</h2>
+        <iframe src="https://drive.google.com/drive/folders/10n5Y20gwjaDG3emvphrzhLSJu9AiEVv9" width="100%" height="600px"></iframe>
+    </div>
+</div>
+</body>
+</html>
